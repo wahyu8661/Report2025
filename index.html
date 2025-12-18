@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentasi Hasil Belajar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    #background-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.4);
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    header img.logo {
+      max-height: 200px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 999;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-weight: 600;
+    }
+
+    .sub-title {
+      opacity: 0.85;
+      margin: 0.5rem 0;
+    }
+
+    .motto {
+      font-size: 2rem;
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+
+    /* QR */
+    .qr-container {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .qr-box {
+      background: rgba(255,255,255,0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .qr-box:hover {
+      transform: scale(1.08);
+    }
+
+    .qr-box img {
+      width: 140px;
+      height: 140px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .name {
+      padding: 0.8rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    /* POPUP TOKEN */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup-box {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      width: 300px;
+    }
+
+    .popup-box input {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+    }
+
+    .popup-box button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-ok { background:#4CAF50; color:white; }
+    .btn-cancel { background:#f44336; color:white; margin-left:5px; }
+
+    .error {
+      margin-top: 0.5rem;
+      color: #ff8080;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<video autoplay muted loop id="background-video">
+  <source src="Main Slideshow_1.mp4" type="video/mp4">
+</video>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#barcode">Barcode</a>
+  <a href="#presentasi">Presentasi</a>
+</nav>
+
+<!-- HOME -->
+<section class="section" id="home">
+  <header>
+    <img src="logo-sekolah.png" class="logo">
+    <h3 class="sub-title">Parents Teachers Interview</h3>
+    <h1>XI Thalhah bin Ubaidillah</h1>
+    <p class="motto">Belajar bukan hanya menghafal,<br>tapi memahami dan menerapkan.</p>
+  </header>
+</section>
+
+<!-- BARCODE -->
+<section class="section" id="barcode">
+  <header>
+    <h2>Scan atau Klik</h2>
+    <div class="qr-container">
+      <a class="qr-box" id="qrWebLink" target="_blank">
+        <img id="qrWeb">
+        <p>Website</p>
+      </a>
+      <a class="qr-box" id="qrDriveLink" target="_blank">
+        <img id="qrDrive">
+        <p>Dokumentasi</p>
+      </a>
+    </div>
+  </header>
+</section>
+
+<!-- PRESENTASI -->
+<section class="section" id="presentasi">
+  <header>
+    <img src="logo-sekolah.png" class="logo">
+    <h1>Our People</h1>
+  </header>
+  <div class="grid" id="studentGrid"></div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="tokenPopup">
+  <div class="popup-box">
+    <h3>Masukkan tanggal lahir ananda</h3>
+    <input id="tokenInput" placeholder="Contoh: 12032010">
+    <div class="error" id="tokenError">Token salah</div>
+    <button class="btn-ok" onclick="checkToken()">OK</button>
+    <button class="btn-cancel" onclick="closePopup()">Batal</button>
+  </div>
+</div>
+
+<script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/1llnd6YXkl98sl39RCy8pK0LSTRAlRw4BfNMuYOox5Uk/export?format=csv";
+const websiteURL = window.location.href;
+const driveURL = "https://drive.google.com/drive/folders/1ZbhbxjhDScHw4oQCcYWiy-x-36r-4txg?usp=sharing";
+
+document.getElementById("qrWeb").src =
+  "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(websiteURL);
+document.getElementById("qrDrive").src =
+  "https://res.cloudinary.com/dsucuk7do/image/upload/v1765953293/barcode_dokumentasi_jragvi.png";
+
+document.getElementById("qrWebLink").href = websiteURL;
+document.getElementById("qrDriveLink").href = driveURL;
+
+let selectedLink = "";
+let selectedToken = "";
+
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(csv => {
+    const rows = csv.split("\n").slice(1);
+    const grid = document.getElementById("studentGrid");
+
+    rows.forEach((row, index) => {
+      if (!row.trim()) return;
+
+      const cols = row.split(",");
+      const foto = cols[0];
+      const nama = cols[1];
+      const token = cols[cols.length - 1].trim();
+      const link = cols.slice(2, cols.length - 1).join(",");
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<img src="${foto}"><span class="name">${nama}</span>`;
+
+      card.onclick = () => {
+        if (index === 0) {
+          // PRESENTASI PERTAMA TANPA TOKEN
+          window.open(link, "_blank");
+        } else {
+          selectedLink = link;
+          selectedToken = token;
+          document.getElementById("tokenPopup").style.display = "flex";
+          document.getElementById("tokenInput").value = "";
+          document.getElementById("tokenError").style.display = "none";
+        }
+      };
+
+      grid.appendChild(card);
+    });
+  });
+
+function checkToken() {
+  if (document.getElementById("tokenInput").value.trim() === selectedToken) {
+    window.open(selectedLink, "_blank");
+    closePopup();
+  } else {
+    document.getElementById("tokenError").style.display = "block";
+  }
+}
+
+function closePopup() {
+  document.getElementById("tokenPopup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
