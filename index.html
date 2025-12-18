@@ -244,11 +244,11 @@
 
 <script>
 const sheetURL = "https://docs.google.com/spreadsheets/d/1llnd6YXkl98sl39RCy8pK0LSTRAlRw4BfNMuYOox5Uk/export?format=csv";
-const websiteURL = window.location.href;
+const websiteURL = "https://report2025.vercel.app/";
 const driveURL = "https://drive.google.com/drive/folders/1ZbhbxjhDScHw4oQCcYWiy-x-36r-4txg?usp=sharing";
 
 document.getElementById("qrWeb").src =
-  "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(websiteURL);
+  "https://res.cloudinary.com/dsucuk7do/image/upload/v1766040602/app_dqkqcd.jpg" + encodeURIComponent(websiteURL);
 document.getElementById("qrDrive").src =
   "https://res.cloudinary.com/dsucuk7do/image/upload/v1765953293/barcode_dokumentasi_jragvi.png";
 
@@ -310,4 +310,5 @@ function closePopup() {
 
 </body>
 </html>
+
 
