@@ -878,4 +878,46 @@ footer ul li{
     .services-container{
         grid-template-columns: repeat(1,1fr);
     }
+
+}
+
+/* ===== HERO MOBILE FIX ===== */
+@media (max-width: 768px){
+
+  .home{
+    min-height: auto;
+    padding-top: 12rem; /* aman dari header */
+    padding-bottom: 6rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .home-content{
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .home-content h1{
+    font-size: 4.2rem;
+    line-height: 1.2;
+  }
+
+  .home-content h3{
+    font-size: 2.4rem;
+  }
+
+  .home-content p{
+    font-size: 1.4rem;
+    max-width: 90%;
+  }
+
+  .home-img{
+    margin-top: 2rem;
+  }
+
+  .home-img img{
+    width: 60vw;
+    max-width: 220px;
+  }
 }
