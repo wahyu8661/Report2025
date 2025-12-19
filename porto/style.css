@@ -21,6 +21,7 @@ html{
     overflow-x: hidden;
 }
 body{
+    padding-top: 0;
     background: var(--bg-color);
     color: var(--text-color);
 }
@@ -921,3 +922,4 @@ footer ul li{
     max-width: 220px;
   }
 }
+
